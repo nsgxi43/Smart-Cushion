@@ -1,0 +1,15 @@
+{
+  "_comment": "Intensity-augmentation sweep. Selection was made on VALIDATION loss only; the test split took no part. Reproduce each row with: python training/train.py --arch bn --intensity <value>",
+  "command": "python training/train.py --arch bn --intensity {0.00|0.03|0.06|0.10}",
+  "selection_metric": "val_loss",
+  "hypothesis": "Backward (mean band 6.44) and Slouch (6.15) differ by only ~4.5% in overall level, so a +/-10% intensity augmentation may be erasing the signal that separates them.",
+  "results": [
+    { "intensity": 0.00, "val_loss": 0.0529, "val_accuracy": 1.0, "epochs_run": 167 },
+    { "intensity": 0.03, "val_loss": 0.0381, "val_accuracy": 1.0, "epochs_run": 251 },
+    { "intensity": 0.06, "val_loss": 0.0458, "val_accuracy": 1.0, "epochs_run": 245 },
+    { "intensity": 0.10, "val_loss": 0.0710, "val_accuracy": 1.0, "epochs_run": 201 }
+  ],
+  "selected": 0.03,
+  "outcome_note": "The sweep improved validation loss (0.0710 -> 0.0381) but did NOT fix the Backward->Slouch failure on the test set: test accuracy moved 0.8525 -> 0.8361 (Backward recall 1/10 -> 0/10). The difference is one test image and is not statistically meaningful. Reported for transparency: the augmentation setting is not the cause of the Backward failure.",
+  "validation_saturation_note": "Validation accuracy is 1.0000 for every configuration, so the validation split can no longer discriminate between candidate models. Further tuning would require more recording sessions, not more hyperparameter search."
+}

@@ -1,0 +1,301 @@
+{
+  "test_size": 61,
+  "test_per_class": [
+    5,
+    10,
+    10,
+    10,
+    10,
+    10,
+    6
+  ],
+  "float_test_loss": 1.036540150642395,
+  "float32": {
+    "accuracy": 0.8360655737704918,
+    "macro_f1": 0.8095238095238095,
+    "weighted_f1": 0.7814207650273224,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "Backward": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 10.0
+      },
+      "Forward": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Right": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Left": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Slouch": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1-score": 0.6666666666666666,
+        "support": 10.0
+      },
+      "Unknown": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6.0
+      },
+      "accuracy": 0.8360655737704918,
+      "macro avg": {
+        "precision": 0.7857142857142857,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.8095238095238095,
+        "support": 61.0
+      },
+      "weighted avg": {
+        "precision": 0.7540983606557377,
+        "recall": 0.8360655737704918,
+        "f1-score": 0.7814207650273224,
+        "support": 61.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ]
+    ]
+  },
+  "int8": {
+    "accuracy": 0.8360655737704918,
+    "macro_f1": 0.8095238095238095,
+    "weighted_f1": 0.7814207650273224,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "Backward": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 10.0
+      },
+      "Forward": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Right": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Left": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Slouch": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1-score": 0.6666666666666666,
+        "support": 10.0
+      },
+      "Unknown": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 6.0
+      },
+      "accuracy": 0.8360655737704918,
+      "macro avg": {
+        "precision": 0.7857142857142857,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.8095238095238095,
+        "support": 61.0
+      },
+      "weighted avg": {
+        "precision": 0.7540983606557377,
+        "recall": 0.8360655737704918,
+        "f1-score": 0.7814207650273224,
+        "support": 61.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ]
+    ]
+  },
+  "agreement": 1.0,
+  "quantization": {
+    "size_bytes": 14312,
+    "input_dtype": "int8",
+    "input_shape": [
+      1,
+      72,
+      64,
+      1
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "output_dtype": "int8",
+    "output_shape": [
+      1,
+      7
+    ],
+    "output_scale": 0.00390625,
+    "output_zero_point": -128,
+    "float_tensors_remaining": [],
+    "ops": [
+      "CONV_2D",
+      "DELEGATE",
+      "FULLY_CONNECTED",
+      "MAX_POOL_2D",
+      "MEAN",
+      "SOFTMAX"
+    ]
+  },
+  "sizes_kb": {
+    "keras_file": 155.205078125,
+    "float32_weights": 28.68359375,
+    "tflite_int8": 13.9765625
+  }
+}

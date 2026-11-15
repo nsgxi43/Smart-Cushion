@@ -11,3 +11,7 @@ models/dataset.npz
 models/recovered_baselines.json
 *.npz
 esp32/host_harness.exe
+
+# screenshot_cnn: raw screenshots are not committed (238 MB)
+screenshot_cnn/dataset/*
+!screenshot_cnn/dataset/README.md

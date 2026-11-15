@@ -1,0 +1,13 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for the seven-class posture mapping. Python and C++ mappings must be derived from this file. Do not reorder.",
+  "num_classes": 7,
+  "classes": [
+    { "id": 0, "name": "Normal",   "description": "Upright, balanced seated posture" },
+    { "id": 1, "name": "Backward", "description": "Leaning backward" },
+    { "id": 2, "name": "Forward",  "description": "Leaning forward" },
+    { "id": 3, "name": "Right",    "description": "Leaning / shifted to the right" },
+    { "id": 4, "name": "Left",     "description": "Leaning / shifted to the left" },
+    { "id": 5, "name": "Slouch",   "description": "Slouched posture" },
+    { "id": 6, "name": "Unknown",  "description": "Empty cushion, nobody seated" }
+  ]
+}

@@ -1,0 +1,2282 @@
+{
+  "input_shape": [
+    72,
+    64,
+    1
+  ],
+  "normalisation": "band index 0..7 decoded from the 8-level turbo palette, divided by 7",
+  "class_names": [
+    "Normal",
+    "Backward",
+    "Forward",
+    "Right",
+    "Left",
+    "Slouch",
+    "Unknown"
+  ],
+  "train_frac": 0.7,
+  "val_frac": 0.15,
+  "guard_frames": 2,
+  "achieved": {
+    "train": 155,
+    "val": 60,
+    "test": 61,
+    "drop": 4
+  },
+  "per_class_notes": {
+    "Normal": "session-level split (sessions kept whole)",
+    "Backward": "session-level split (sessions kept whole)",
+    "Forward": "session-level split (sessions kept whole)",
+    "Right": "session-level split (sessions kept whole)",
+    "Left": "session-level split (sessions kept whole)",
+    "Slouch": "session-level split (sessions kept whole)",
+    "Unknown": "SINGLE SESSION - contiguous temporal split with a 2-frame guard band; train/val/test are not independent recordings"
+  },
+  "cross_split_max_similarity": {
+    "train_vs_val": 0.9865606427192688,
+    "train_vs_test": 0.9866485595703125,
+    "val_vs_test": 0.9931319952011108
+  },
+  "items": [
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.08.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.08.55   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.09.06\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.09.06   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.09.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.09.08   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.09.10\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.09.10   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.09.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.09.12   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.10.28\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.10.28   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.10.29\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.10.29   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.10.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.10.30   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.10.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.10.32   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.10.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.10.33   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.30   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.32   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.33   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.34\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.34   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.35   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.36\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.36   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.37\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.37   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.38\u0393\u00c7\u00bbPM 1.png",
+      "name": "Screenshot 2026-11-15 at 3.12.38   PM 1.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.38   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.12.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.12.40   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.47   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.48\u0393\u00c7\u00bbPM 1.png",
+      "name": "Screenshot 2026-11-15 at 3.14.48   PM 1.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.48\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.48   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.49\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.49   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.50\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.50   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.51   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.52\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.52   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.53\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.53   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.55   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.14.56\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.14.56   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.07\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.07   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.09   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.11\u0393\u00c7\u00bbPM copy.png",
+      "name": "Screenshot 2026-11-15 at 3.16.11   PM copy.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.11   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.15   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.19\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.19   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.21\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.21   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.25   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.27   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Normal/Screenshot 2026-11-15 at 3.16.29\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.16.29   PM.png",
+      "cls": "Normal",
+      "label": 0,
+      "session": "Normal_s4",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.24\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.24   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.26\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.26   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.27   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.29\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.29   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.30   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.32   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.34\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.34   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.35   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.36\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.36   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.39.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.39.38   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.08   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.10\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.10   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.11   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.12   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.14   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.16   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.19\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.19   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.21\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.21   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.23\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.23   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.42.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.42.25   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.09   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.10\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.10   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.12   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.13\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.13   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.15   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.16   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.18\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.18   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.20\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.20   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.22\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.22   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.43.23\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.43.23   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.23\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.23   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.25   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.27   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.28\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.28   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.30   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.31\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.31   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.32   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.33   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.34\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.34   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Backward/Screenshot 2026-11-15 at 3.47.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.47.35   PM.png",
+      "cls": "Backward",
+      "label": 1,
+      "session": "Backward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.28\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.28   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.32   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.33   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.35   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.37\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.37   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.38   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.40   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.41\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.41   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.43\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.43   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.22.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.22.45   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.23.56\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.23.56   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.23.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.23.59   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.01   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.03\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.03   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.06\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.06   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.08   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.11   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.13\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.13   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.15   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.17\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.17   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.51   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.52\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.52   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.55   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.24.57\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.24.57   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.00\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.00   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.01   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.03\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.03   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.05\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.05   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.07\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.07   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.25.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.25.09   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.21\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.21   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.23\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.23   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.25   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.27   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.29\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.29   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.31\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.31   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.33   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.35   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.37\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.37   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Forward/Screenshot 2026-11-15 at 3.28.39\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.28.39   PM.png",
+      "cls": "Forward",
+      "label": 2,
+      "session": "Forward_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.29.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.29.51   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.29.53\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.29.53   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.29.56\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.29.56   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.29.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.29.59   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.01   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.04\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.04   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.08   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.11   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.14   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.30.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.30.16   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.17\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.17   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.20\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.20   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.25   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.28\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.28   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.30   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.32   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.34\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.34   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.36\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.36   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.37\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.37   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.31.41\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.31.41   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.45   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.47   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.49\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.49   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.52\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.52   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.54\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.54   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.56\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.56   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.58\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.58   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.32.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.32.59   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.01   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.03\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.03   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.35   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.40   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.42\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.42   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.45   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.48\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.48   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.51   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.53\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.53   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.55   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.57\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.57   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Right/Screenshot 2026-11-15 at 3.33.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.33.59   PM.png",
+      "cls": "Right",
+      "label": 3,
+      "session": "Right_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.34.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.34.59   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.02\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.02   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.04\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.04   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.07\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.07   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.08   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.09   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.12   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.14   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.16   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.35.18\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.35.18   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.02\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.02   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.04\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.04   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.06\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.06   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.07\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.07   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.09   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.11   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.13\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.13   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.14   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.16   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.17\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.17   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s1",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.47   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.49\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.49   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.50\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.50   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.52\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.52   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.54\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.54   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.55   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.57\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.57   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.36.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.36.59   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.00\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.00   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.01   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s2",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.45   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.47   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.50\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.50   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.51   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.53\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.53   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.54\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.54   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.56\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.56   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.37.58\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.37.58   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.38.00\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.38.00   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Left/Screenshot 2026-11-15 at 3.38.02\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.38.02   PM.png",
+      "cls": "Left",
+      "label": 4,
+      "session": "Left_s3",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.08\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.08   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.10\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.10   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.11\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.11   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.12   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.13\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.13   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.15   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.16\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.16   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.17\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.17   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.18\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.18   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.52.20\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.52.20   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.12\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.12   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.14   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.15   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.18\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.18   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.19\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.19   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.20\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.20   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.22\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.22   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.23\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.23   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.24\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.24   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.25\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.25   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.26\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.26   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.27   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.29\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.29   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.30\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.30   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.31\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.31   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.32\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.32   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.33   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.35   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.36\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.36   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.54.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.54.38   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s1",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.31\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.31   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.33\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.33   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.35\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.35   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.37\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.37   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.39\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.39   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.40   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.42\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.42   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.43\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.43   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.44\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.44   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Slouch/Screenshot 2026-11-15 at 3.55.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.55.45   PM.png",
+      "cls": "Slouch",
+      "label": 5,
+      "session": "Slouch_s2",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.38   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.40   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.41\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.41   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.42\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.42   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.43\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.43   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.44\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.44   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.45   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.46\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.46   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.47   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.48\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.48   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.49\u0393\u00c7\u00bbPM 1.png",
+      "name": "Screenshot 2026-11-15 at 3.19.49   PM 1.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.49\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.49   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.50\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.50   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.51\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.51   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.52\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.52   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.53\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.53   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.54\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.54   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.55\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.55   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.19.59\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.19.59   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.00\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.00   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.01\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.01   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.02\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.02   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.03\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.03   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.04\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.04   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.05\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.05   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "train"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.15\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.15   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "drop"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.27\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.27   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "drop"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.34\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.34   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.36\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.36   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.38\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.38   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.40\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.40   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.42\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.42   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "val"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.43\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.43   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "drop"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.45\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.45   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "drop"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.20.47\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.20.47   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.21.07\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.21.07   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.21.09\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.21.09   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.21.13\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.21.13   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.21.14\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.21.14   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    },
+    {
+      "path": "dataset/Unknown/Screenshot 2026-11-15 at 3.21.17\u0393\u00c7\u00bbPM.png",
+      "name": "Screenshot 2026-11-15 at 3.21.17   PM.png",
+      "cls": "Unknown",
+      "label": 6,
+      "session": "Unknown_s0",
+      "split": "test"
+    }
+  ]
+}

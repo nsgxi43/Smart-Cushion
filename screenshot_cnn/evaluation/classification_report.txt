@@ -1,0 +1,107 @@
+=== FLOAT32 Keras model - held-out test set ===
+
+accuracy      : 0.8361  (51/61)
+macro F1      : 0.8095
+weighted F1   : 0.7814
+
+              precision    recall  f1-score   support
+
+      Normal     1.0000    1.0000    1.0000         5
+    Backward     0.0000    0.0000    0.0000        10
+     Forward     1.0000    1.0000    1.0000        10
+       Right     1.0000    1.0000    1.0000        10
+        Left     1.0000    1.0000    1.0000        10
+      Slouch     0.5000    1.0000    0.6667        10
+     Unknown     1.0000    1.0000    1.0000         6
+
+    accuracy                         0.8361        61
+   macro avg     0.7857    0.8571    0.8095        61
+weighted avg     0.7541    0.8361    0.7814        61
+
+confusion matrix (rows = true, cols = predicted)
+             Norma  Backw  Forwa  Right   Left  Slouc  Unkno
+  Normal         5      0      0      0      0      0      0
+  Backward       0      0      0      0      0     10      0
+  Forward        0      0     10      0      0      0      0
+  Right          0      0      0     10      0      0      0
+  Left           0      0      0      0     10      0      0
+  Slouch         0      0      0      0      0     10      0
+  Unknown        0      0      0      0      0      0      6
+
+focus pairs (confusions in both directions):
+  Normal    -> Slouch      0      Slouch    -> Normal      0
+  Forward   -> Backward    0      Backward  -> Forward     0
+  Left      -> Right       0      Right     -> Left        0
+  Normal    -> Unknown     0      Unknown   -> Normal      0
+
+Unknown recall   : 1.0000  (6/6)
+Unknown precision: 1.0000
+
+
+=== INT8 TFLite model - held-out test set ===
+
+accuracy      : 0.8361  (51/61)
+macro F1      : 0.8095
+weighted F1   : 0.7814
+
+              precision    recall  f1-score   support
+
+      Normal     1.0000    1.0000    1.0000         5
+    Backward     0.0000    0.0000    0.0000        10
+     Forward     1.0000    1.0000    1.0000        10
+       Right     1.0000    1.0000    1.0000        10
+        Left     1.0000    1.0000    1.0000        10
+      Slouch     0.5000    1.0000    0.6667        10
+     Unknown     1.0000    1.0000    1.0000         6
+
+    accuracy                         0.8361        61
+   macro avg     0.7857    0.8571    0.8095        61
+weighted avg     0.7541    0.8361    0.7814        61
+
+confusion matrix (rows = true, cols = predicted)
+             Norma  Backw  Forwa  Right   Left  Slouc  Unkno
+  Normal         5      0      0      0      0      0      0
+  Backward       0      0      0      0      0     10      0
+  Forward        0      0     10      0      0      0      0
+  Right          0      0      0     10      0      0      0
+  Left           0      0      0      0     10      0      0
+  Slouch         0      0      0      0      0     10      0
+  Unknown        0      0      0      0      0      0      6
+
+focus pairs (confusions in both directions):
+  Normal    -> Slouch      0      Slouch    -> Normal      0
+  Forward   -> Backward    0      Backward  -> Forward     0
+  Left      -> Right       0      Right     -> Left        0
+  Normal    -> Unknown     0      Unknown   -> Normal      0
+
+Unknown recall   : 1.0000  (6/6)
+Unknown precision: 1.0000
+
+====================================================================
+FLOAT32 vs INT8 COMPARISON
+====================================================================
+
+metric                       float32          INT8         delta
+accuracy                      0.8361        0.8361       +0.0000
+macro F1                      0.8095        0.8095       +0.0000
+weighted F1                   0.7814        0.7814       +0.0000
+Unknown recall                1.0000        1.0000       +0.0000
+
+prediction agreement : 1.0000 (61/61 test images identical)
+mean |prob| difference: 0.00139
+
+per-class F1   float32      INT8
+  Normal        1.0000    1.0000
+  Backward      0.0000    0.0000
+  Forward       1.0000    1.0000
+  Right         1.0000    1.0000
+  Left          1.0000    1.0000
+  Slouch        0.6667    0.6667
+  Unknown       1.0000    1.0000
+
+model size                          
+  Keras .keras file       155.2 KB
+  float32 weights          28.7 KB  (7,343 parameters)
+  INT8 .tflite file        14.0 KB
+  reduction vs float32 weights: 51.3 %
+

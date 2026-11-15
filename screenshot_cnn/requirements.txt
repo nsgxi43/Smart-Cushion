@@ -1,0 +1,8 @@
+# Smart Cushion posture CNN - Python dependencies
+# Verified with Python 3.12 on Windows 11 (CPU-only TensorFlow).
+
+numpy>=1.26
+pillow>=10.0
+tensorflow==2.20.0
+scikit-learn>=1.4
+matplotlib>=3.8

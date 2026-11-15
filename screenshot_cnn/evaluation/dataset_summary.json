@@ -1,0 +1,163 @@
+{
+  "total_files": 280,
+  "dimensions": {
+    "1702x1948": 280
+  },
+  "formats": {
+    "PNG": 280
+  },
+  "modes": {
+    "RGBA": 280
+  },
+  "corrupt_files": [],
+  "exact_duplicate_groups": 17,
+  "exact_duplicate_files": 35,
+  "per_class": {
+    "Normal": {
+      "label": 0,
+      "files": 40,
+      "unique": 35,
+      "dup_files": 10,
+      "sessions": 5,
+      "session_sizes": [
+        10,
+        10,
+        10,
+        5,
+        5
+      ],
+      "effective": 23
+    },
+    "Backward": {
+      "label": 1,
+      "files": 40,
+      "unique": 40,
+      "dup_files": 0,
+      "sessions": 4,
+      "session_sizes": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "effective": 14
+    },
+    "Forward": {
+      "label": 2,
+      "files": 40,
+      "unique": 40,
+      "dup_files": 0,
+      "sessions": 4,
+      "session_sizes": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "effective": 39
+    },
+    "Right": {
+      "label": 3,
+      "files": 40,
+      "unique": 40,
+      "dup_files": 0,
+      "sessions": 4,
+      "session_sizes": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "effective": 39
+    },
+    "Left": {
+      "label": 4,
+      "files": 40,
+      "unique": 39,
+      "dup_files": 2,
+      "sessions": 4,
+      "session_sizes": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "effective": 38
+    },
+    "Slouch": {
+      "label": 5,
+      "files": 40,
+      "unique": 36,
+      "dup_files": 8,
+      "sessions": 3,
+      "session_sizes": [
+        20,
+        10,
+        10
+      ],
+      "effective": 13
+    },
+    "Unknown": {
+      "label": 6,
+      "files": 40,
+      "unique": 32,
+      "dup_files": 15,
+      "sessions": 1,
+      "session_sizes": [
+        40
+      ],
+      "effective": 32
+    }
+  },
+  "band_stats": {
+    "Normal": {
+      "mean": 5.447417959960975,
+      "min": 5.1333229552298345,
+      "max": 5.762138252640242,
+      "black_pct": 0.27589389864167896
+    },
+    "Backward": {
+      "mean": 6.442246993593583,
+      "min": 6.272641007020092,
+      "max": 6.586467914360758,
+      "black_pct": 1.2050399591250445e-05
+    },
+    "Forward": {
+      "mean": 4.410399574562204,
+      "min": 3.9101352621632053,
+      "max": 4.896876620330363,
+      "black_pct": 1.224441102466958
+    },
+    "Right": {
+      "mean": 4.807005002847144,
+      "min": 3.93740098916855,
+      "max": 5.342277961286432,
+      "black_pct": 3.1800884017314015
+    },
+    "Left": {
+      "mean": 4.9382920909206796,
+      "min": 4.155939868719231,
+      "max": 5.839123698862261,
+      "black_pct": 0.16409029123405733
+    },
+    "Slouch": {
+      "mean": 6.154461828704927,
+      "min": 6.0019187501826226,
+      "max": 6.346164157206433,
+      "black_pct": 0.006700022172735248
+    },
+    "Unknown": {
+      "mean": 1.1954517296747464,
+      "min": 1.0535444438447836,
+      "max": 1.3626998359342208,
+      "black_pct": 20.908359121188454
+    }
+  },
+  "median_col_period_px": 27.409999999999584,
+  "median_row_period_px": 27.439999999999586,
+  "native_render_grid": [
+    62,
+    71
+  ],
+  "palette": "8-level matplotlib turbo + black (below lowest band) + white (contour strokes)"
+}
