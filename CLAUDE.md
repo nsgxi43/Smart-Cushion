@@ -198,3 +198,9 @@ venv\Scripts\python -m pytest tests -q
   editor instead.
 * PlatformIO and arduino-cli are not installed — all firmware build/upload/
   timing numbers are PENDING_HARDWARE.
+
+## Commit attribution
+
+Commits in this repository are authored solely by the repository owner. Do
+**not** add `Co-Authored-By` trailers or any other tool/assistant attribution
+to commit messages or pull request descriptions.
