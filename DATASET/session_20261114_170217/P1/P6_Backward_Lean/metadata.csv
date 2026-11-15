@@ -1,0 +1,2 @@
+session_timestamp,position_code,position_label,repetitions_planned,capture_duration_seconds,captured_frames,matrix_rows,matrix_columns
+20261114_170217,P6,Backward_Lean,5,10,75,24,21
