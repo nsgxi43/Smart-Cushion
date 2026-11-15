@@ -1,0 +1,9 @@
+held_out,setting,train_frames,test_frames,shared_recording_takes,train_rows_derived_from_held_out,held_out_frames_in_train
+P1,REAL_ONLY,1408,440,0,0,0
+P1,REAL_PLUS_SYNTHETIC,3287,440,0,0,0
+P2,REAL_ONLY,1377,471,0,0,0
+P2,REAL_PLUS_SYNTHETIC,3194,471,0,0,0
+P3,REAL_ONLY,1385,463,0,0,0
+P3,REAL_PLUS_SYNTHETIC,3681,463,0,0,0
+P4,REAL_ONLY,1374,474,0,0,0
+P4,REAL_PLUS_SYNTHETIC,3659,474,0,0,0

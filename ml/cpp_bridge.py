@@ -134,6 +134,7 @@ class Harness:
             "logits": np.array(t[1:i_arg], dtype=np.int32),
             "argmax": int(t[i_arg + 1]),
             "prob": np.array(t[i_prob + 1:], dtype=np.float32),
+            "confidence": float(np.array(t[i_prob + 1:], dtype=np.float32).max()),
         }
 
     def close(self):

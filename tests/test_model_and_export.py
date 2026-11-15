@@ -65,8 +65,8 @@ def test_model_input_dimension_is_504(meta):
 
 # ------------------------------------------------------------------ INT8 model
 def test_int8_model_is_fully_quantised(tflite_bytes):
-    import tensorflow as tf
-    interp = tf.lite.Interpreter(model_content=tflite_bytes)
+    from export_int8 import _interpreter
+    interp = _interpreter(tflite_bytes)
     interp.allocate_tensors()
     inp = interp.get_input_details()[0]
     out = interp.get_output_details()[0]
@@ -81,8 +81,8 @@ def test_int8_model_is_fully_quantised(tflite_bytes):
 
 
 def test_int8_output_shape_and_softmax(tflite_bytes, sample_features):
-    import tensorflow as tf
-    interp = tf.lite.Interpreter(model_content=tflite_bytes)
+    from export_int8 import _interpreter
+    interp = _interpreter(tflite_bytes)
     interp.allocate_tensors()
     inp, out = interp.get_input_details()[0], interp.get_output_details()[0]
     s_in, z_in = inp["quantization"]
@@ -124,8 +124,8 @@ def test_model_data_header_exists_and_is_consistent(meta):
 
 def test_generated_cpp_matches_tflite(tflite_bytes, sample_features, meta):
     """Identical argmax on all frames; logits within +/-1 quantisation step."""
-    import tensorflow as tf
     from cpp_bridge import Harness, build
+    from export_int8 import _interpreter
     try:
         build(with_inference=True)
     except (RuntimeError, FileNotFoundError) as exc:
@@ -137,7 +137,7 @@ def test_generated_cpp_matches_tflite(tflite_bytes, sample_features, meta):
         X = X.copy()
         X[:, COL20_IDX] = 0.0
 
-    interp = tf.lite.Interpreter(model_content=tflite_bytes)
+    interp = _interpreter(tflite_bytes)
     interp.allocate_tensors()
     inp, out = interp.get_input_details()[0], interp.get_output_details()[0]
     s_in, z_in = inp["quantization"]
@@ -153,7 +153,7 @@ def test_generated_cpp_matches_tflite(tflite_bytes, sample_features, meta):
             ref = interp.get_tensor(out["index"])[0].astype(np.int32)
             got = h.infer_features(x)
             assert got["argmax"] == int(ref.argmax()), "argmax mismatch"
-            assert np.abs(got["logits"] - ref).max() <= 1, "logits beyond 1 step"
+            assert np.abs(got["logits"] - ref).max() == 0, "logits must match exactly"
             assert abs(float(got["prob"].sum()) - 1.0) < 1e-4
             assert 0.0 <= got["confidence"] <= 1.0
 

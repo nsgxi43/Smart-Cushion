@@ -15,3 +15,46 @@ WARNING:tensorflow:6 out of the last 6 calls to <function TensorFlowTrainer.make
   REAL_ONLY            held-out P4 -> nested acc 0.4451  (selected logreg|{"C": 0.01}|mask20)  [202s]
   REAL_PLUS_SYNTHETIC  held-out P1 -> nested acc 0.3750  (selected keras_504_16_6|{"dropout": 0.3, "lr": 0.001}|all504)  [493s]
   REAL_PLUS_SYNTHETIC  held-out P2 -> nested acc 0.0849  (selected random_forest|{"max_depth": null, "min_samples_leaf": 2, "n_estimators": 300}|mask20)  [469s]
+  REAL_PLUS_SYNTHETIC  held-out P3 -> nested acc 0.4082  (selected logreg|{"C": 0.01}|all504)  [494s]
+  REAL_PLUS_SYNTHETIC  held-out P4 -> nested acc 0.4810  (selected logreg|{"C": 0.1}|all504)  [409s]
+
+=== NESTED (headline, unbiased) ===
+                       mean     std     min     max
+data                                               
+REAL_ONLY            0.3383  0.1071  0.2017  0.4451
+REAL_PLUS_SYNTHETIC  0.3373  0.1740  0.0849  0.4810
+
+               data held_out  outer_accuracy  outer_macro_f1                                                                   selected_candidate
+          REAL_ONLY       P1        0.309091        0.280915                                                           svm_rbf|{"C": 10.0}|mask20
+          REAL_ONLY       P2        0.201699        0.206767 random_forest|{"max_depth": null, "min_samples_leaf": 2, "n_estimators": 300}|all504
+          REAL_ONLY       P3        0.397408        0.369500                               keras_504_32_16_6|{"dropout": 0.3, "lr": 0.001}|mask20
+          REAL_ONLY       P4        0.445148        0.361635                                                            logreg|{"C": 0.01}|mask20
+REAL_PLUS_SYNTHETIC       P1        0.375000        0.324017                                  keras_504_16_6|{"dropout": 0.3, "lr": 0.001}|all504
+REAL_PLUS_SYNTHETIC       P2        0.084926        0.119205 random_forest|{"max_depth": null, "min_samples_leaf": 2, "n_estimators": 300}|mask20
+REAL_PLUS_SYNTHETIC       P3        0.408207        0.372423                                                            logreg|{"C": 0.01}|all504
+REAL_PLUS_SYNTHETIC       P4        0.481013        0.373734                                                             logreg|{"C": 0.1}|all504
+
+=== per-candidate mean over folds (DIAGNOSTIC ONLY) ===
+               data            family  mask20                                                             cfg  outer_mean  outer_min  inner_mean
+REAL_PLUS_SYNTHETIC keras_504_32_16_6    True                                   {"dropout": 0.3, "lr": 0.001}      0.4452     0.3397      0.3891
+          REAL_ONLY keras_504_32_16_6    True                                   {"dropout": 0.3, "lr": 0.001}      0.4439     0.3355      0.4226
+REAL_PLUS_SYNTHETIC            logreg    True                                                      {"C": 0.1}      0.4393     0.3907      0.4168
+REAL_PLUS_SYNTHETIC            logreg   False                                                      {"C": 0.1}      0.4356     0.3758      0.4010
+          REAL_ONLY            logreg    True                                                      {"C": 0.1}      0.4345     0.3885      0.3933
+REAL_PLUS_SYNTHETIC    keras_504_16_6    True                                   {"dropout": 0.3, "lr": 0.001}      0.4272     0.3692      0.3663
+          REAL_ONLY       mlp_sklearn    True                {"alpha": 0.001, "hidden_layer_sizes": [32, 16]}      0.4204     0.3045      0.3744
+REAL_PLUS_SYNTHETIC            logreg   False                                                     {"C": 0.01}      0.4197     0.3949      0.3847
+          REAL_ONLY            logreg    True                                                     {"C": 0.01}      0.4195     0.3928      0.4018
+          REAL_ONLY     random_forest    True                          {"max_depth": 14, "n_estimators": 300}      0.4187     0.1847      0.3379
+          REAL_ONLY       mlp_sklearn    True                 {"alpha": 0.01, "hidden_layer_sizes": [32, 16]}      0.4180     0.3227      0.3765
+          REAL_ONLY     random_forest    True {"max_depth": null, "min_samples_leaf": 2, "n_estimators": 300}      0.4169     0.2017      0.3418
+REAL_PLUS_SYNTHETIC keras_504_64_32_6   False                                   {"dropout": 0.3, "lr": 0.001}      0.4164     0.3136      0.3776
+REAL_PLUS_SYNTHETIC            logreg    True                                                     {"C": 0.01}      0.4146     0.3907      0.3924
+          REAL_ONLY       mlp_sklearn    True                {"alpha": 0.001, "hidden_layer_sizes": [64, 32]}      0.4121     0.3439      0.4013
+REAL_PLUS_SYNTHETIC       mlp_sklearn   False                 {"alpha": 0.01, "hidden_layer_sizes": [32, 16]}      0.4086     0.3801      0.3309
+          REAL_ONLY     random_forest    True                           {"max_depth": 8, "n_estimators": 200}      0.4072     0.1868      0.3261
+          REAL_ONLY            logreg    True                                                      {"C": 1.0}      0.4060     0.2548      0.3731
+          REAL_ONLY            logreg   False                                                      {"C": 0.1}      0.4025     0.2743      0.3647
+          REAL_ONLY    keras_504_16_6    True                                   {"dropout": 0.3, "lr": 0.001}      0.4023     0.2951      0.3474
+
+total 43.1 min   wrote C:\Users\Niranjana Gopinath\Projects\Smart-Cushion\reports\phase4_evaluation

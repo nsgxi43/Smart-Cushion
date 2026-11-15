@@ -111,3 +111,83 @@ everything derived from the held-out person.
 
 Height/weight/sex recorded as `SYNTHETIC/NA`. These are not real people.
 Evidence: `reports/synthetic_report/`.
+
+---
+
+## Phase 4 — Models and evaluation — DONE
+
+Nested leave-one-real-participant-out, 30 candidates, both data settings.
+Full output: `reports/phase4_evaluation/`.
+
+### Decision rule outcome
+
+| setting | mean held-out accuracy |
+|---|---|
+| REAL_ONLY | **0.3383** |
+| REAL_PLUS_SYNTHETIC | 0.3373 |
+
+Synthetic augmentation did **not** improve held-out real performance, so by the
+stated rule it was **dropped**. The shipped model is trained on real data only.
+This is a negative result and is reported as one.
+
+### Shipped architecture, held out per fold
+
+Chosen by inner-validation score only (0.4226 inner; next best 0.4107):
+`504-32-16-6`, column 20 masked, 16 790 parameters.
+
+| held-out | accuracy | macro F1 |
+|---|---|---|
+| P1 | 0.4182 | 0.4134 |
+| P2 | 0.3355 | 0.2197 |
+| P3 | 0.3974 | 0.3695 |
+| P4 | 0.6245 | 0.5832 |
+| **mean** | **0.4439** | **0.3965** |
+
+Chance is 0.1667. Training-set accuracy was 0.7857 — recorded only to show it is
+**not** the generalisation number.
+
+### Why it is not higher
+
+`reports/phase4_evaluation/domain_shift_diagnostic.md`. Within a participant the
+postures separate at ~0.87 (leave-one-repetition-out). Across participants no
+feature transform or model family tested exceeds ~0.44: global scale, per-frame
+norm, per-frame mean norm, binary occupancy, session-z, row/column profiles and
+centre of pressure all land in 0.37–0.44. A logistic regression predicting
+*which participant* a frame came from reaches 99.5 % in-sample (chance 25 %).
+Participant identity dominates posture in this sensor's output, and 4
+participants are not enough to learn a participant-invariant representation.
+
+---
+
+## Phase 5 — Export — DONE
+
+| check | result | tolerance |
+|---|---|---|
+| INT8 vs float top-1 agreement | **0.9935** | ≥ 0.99 |
+| INT8 vs float max probability difference | 0.0700 | documented |
+| Generated C++ vs TFLite INT8 argmax | **500/500** | identical on all frames |
+| Generated C++ vs TFLite INT8 max logit difference | **0** | ±1 step |
+| Independent numpy replica | 500/500 | — |
+
+Memory: flash 17 563 B (17.2 kB), static RAM 32 832 B (32.1 kB), inference
+workspace 4 536 B, **no dynamic allocation**. Fits the ESP32's 520 kB SRAM /
+4 MB flash with large margin. Compiler-reported figures: PENDING_HARDWARE.
+
+---
+
+## Phases 6–8 — Firmware, UI, tests — DONE
+
+* Scan preserved: `reports/firmware_scan_diff.md` **PASS** (17 constants, both
+  helper functions, the 18-operation scan sequence, 13 pinMode calls).
+* Protocol, smoothing (3-frame window), confidence threshold 0.55, UNKNOWN
+  state, `CAL`/`MODE`/`STATUS` commands, startup calibration with
+  CALIBRATION_FAILED + retry.
+* Dashboard verified serving (HTTP 200); simulated source exercises the whole
+  UI without hardware; every prediction is tagged ESP32 or Python.
+* **69 pytest tests pass.**
+
+---
+
+## Phase 9 — Audit — 10 PASS, 0 FAIL, 5 PENDING_HARDWARE
+
+`reports/phase9_audit/acceptance_table.md`, `reports/experiment_summary.md`.

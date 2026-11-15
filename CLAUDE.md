@@ -111,3 +111,90 @@ venv\Scripts\python ml\preprocess.py          # -> models/preprocess_config.json
 ```
 
 (Later phases are appended as they are built.)
+
+## Phase 3 — synthetic participants
+
+`ml/augment.py`. Each synthetic derives from exactly ONE real participant
+(`SYNTHETIC_SOURCES`: P5←P1, P6←P2, P7←P3, P8←P4, P9←P1, P10←P2) so a LOPO fold
+can drop every frame derived from the held-out person. 2759 frames, 0 identical
+to source, 100 % internally consistent with the Phase 2 identity.
+
+## Phase 4 — evaluation protocol
+
+`ml/evaluate.py`. **Nested** leave-one-real-participant-out. The inner LOPO over
+the 3 training participants selects among all 30 candidates (4 sklearn families
++ 4 Keras architectures × column-20 masked/unmasked). The held-out participant
+is used for nothing but the final score. The per-candidate outer table is
+**diagnostic only** — picking its best row would be selection on the test set.
+
+`ml/decide_model.py` makes exactly two decisions:
+1. synthetic on/off, by the spec's rule (keep only if held-out real accuracy
+   improves or stays equal);
+2. architecture, by **inner** score only, smallest wins within 1 SE.
+
+### The dominant finding
+
+Cross-participant generalisation is the bottleneck, not the model.
+`reports/phase4_evaluation/domain_shift_diagnostic.md`:
+
+* within a participant (leave-one-repetition-out): **~0.87**
+* across participants (LOPO): **0.37–0.44** for *every* feature transform and
+  model family tested — global scale, per-frame norm, session-z, binary,
+  row/column profiles, centre of pressure
+* a logistic regression predicting **which participant** a frame came from
+  reaches **99.5 %** in-sample (chance 25 %)
+
+Participant identity is written into these frames far more strongly than
+posture is. With 4 participants there is not enough variation to learn a
+participant-invariant representation. Centre-of-pressure (6 features) was the
+best cross-participant transform at 0.44 — reported as a recommendation, not
+shipped, because the spec fixes the input at 504 dimensions.
+
+## Phase 5 — INT8 export
+
+`ml/export_int8.py` → `esp32/model_data.h`; `esp32/inference.cpp` is hand-written
+and generic over the header. Three bugs worth remembering:
+
+1. **XNNPACK** fuses FULLY_CONNECTED into a `DELEGATE` node, hiding per-layer
+   tensors. Use `OpResolverType.BUILTIN_REF` (`export_int8._interpreter`).
+2. Reading TFLite **intermediate** tensors needs
+   `experimental_preserve_all_tensors=True`; otherwise the arena is reused and
+   you read garbage.
+3. **Requantisation must be single-rounding.** Modern TFLite defines
+   `TFLITE_SINGLE_ROUNDING`: one rounding on an int64 intermediate. gemmlowp's
+   double rounding (SaturatingRoundingDoublingHighMul + RoundingDivideByPOT)
+   pushes values just below .5 up — a true 71.4962 becomes 71.5 then 72 — which
+   flipped a near-tie argmax on 1 frame in 500. Both sides now round once.
+
+Result: generated C++ vs TFLite INT8 = **500/500 argmax, max logit diff 0**.
+
+## Commands (full pipeline)
+
+```
+venv\Scripts\python ml\inspect_dataset.py
+venv\Scripts\python ml\build_dataset.py
+venv\Scripts\python ml\preprocess.py
+venv\Scripts\python ml\verify_preprocess.py
+venv\Scripts\python ml\augment.py
+venv\Scripts\python ml\validate_synthetic.py
+venv\Scripts\python ml\build_dataset.py        # rebuild with synthetic
+venv\Scripts\python ml\evaluate.py             # ~45 min
+venv\Scripts\python ml\diagnose_shift.py
+venv\Scripts\python ml\decide_model.py
+venv\Scripts\python ml\export_int8.py
+venv\Scripts\python ml\verify_inference.py
+venv\Scripts\python ml\verify_firmware.py
+venv\Scripts\python ml\audit.py
+venv\Scripts\python ml\experiment_summary.py
+venv\Scripts\python -m pytest tests -q
+```
+
+## Gotchas on this machine
+
+* `g++` (WinLibs) mis-resolves its own include path because the toolchain lives
+  under a path with spaces. `clang++` from the same package works;
+  `ml/cpp_bridge.py` tries clang++ first.
+* Large heredocs through the Bash tool truncate; write big files with the
+  editor instead.
+* PlatformIO and arduino-cli are not installed — all firmware build/upload/
+  timing numbers are PENDING_HARDWARE.

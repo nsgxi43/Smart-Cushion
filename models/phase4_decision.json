@@ -1,3 +1,77 @@
-{"version":"0.0.0-smoketest","use_synthetic":false,"hidden":[32,16],
- "mask_col20":false,"dropout":0.3,"l2":0.0001,"epochs":30,"batch":64,
- "heldout_real_accuracy_human":"SMOKE TEST - not a real decision"}
+{
+  "decision_date": "2026-11-15T12:30:14",
+  "version": "1.0.0",
+  "use_synthetic": false,
+  "synthetic_decision_rule": "keep synthetic only if held-out real performance improves or stays equal",
+  "nested_mean_real_only": 0.3383363273899102,
+  "nested_mean_real_plus_synthetic": 0.3372864229154016,
+  "training_data_setting": "REAL_ONLY",
+  "architecture_family": "keras_504_32_16_6",
+  "hidden": [
+    32,
+    16
+  ],
+  "mask_col20": true,
+  "dropout": 0.3,
+  "l2": 0.0001,
+  "epochs": 120,
+  "batch": 64,
+  "architecture_selection_rule": "best mean INNER leave-one-participant-out score across the 4 outer folds; ties within 1 SE broken by fewest parameters. The held-out participant was never used to choose the architecture.",
+  "chosen_inner_mean_acc": 0.42256216738300406,
+  "chosen_parameters": 16790,
+  "chosen_heldout_per_fold": [
+    {
+      "held_out": "P1",
+      "outer_accuracy": 0.41818181818181815,
+      "outer_macro_f1": 0.41344488076983515
+    },
+    {
+      "held_out": "P2",
+      "outer_accuracy": 0.3354564755838641,
+      "outer_macro_f1": 0.21968204128156263
+    },
+    {
+      "held_out": "P3",
+      "outer_accuracy": 0.39740820734341253,
+      "outer_macro_f1": 0.3695002068945019
+    },
+    {
+      "held_out": "P4",
+      "outer_accuracy": 0.6244725738396625,
+      "outer_macro_f1": 0.5832325027948034
+    }
+  ],
+  "chosen_heldout_mean_acc": 0.44387976873718926,
+  "chosen_heldout_min_acc": 0.3354564755838641,
+  "chosen_heldout_macro_f1": 0.39646490793517575,
+  "nested_protocol_per_fold": [
+    {
+      "held_out": "P1",
+      "outer_accuracy": 0.3090909090909091,
+      "outer_macro_f1": 0.28091500825313775,
+      "selected_candidate": "svm_rbf|{\"C\": 10.0}|mask20"
+    },
+    {
+      "held_out": "P2",
+      "outer_accuracy": 0.20169851380042464,
+      "outer_macro_f1": 0.20676713107060649,
+      "selected_candidate": "random_forest|{\"max_depth\": null, \"min_samples_leaf\": 2, \"n_estimators\": 300}|all504"
+    },
+    {
+      "held_out": "P3",
+      "outer_accuracy": 0.39740820734341253,
+      "outer_macro_f1": 0.3695002068945019,
+      "selected_candidate": "keras_504_32_16_6|{\"dropout\": 0.3, \"lr\": 0.001}|mask20"
+    },
+    {
+      "held_out": "P4",
+      "outer_accuracy": 0.4451476793248945,
+      "outer_macro_f1": 0.36163527794429084,
+      "selected_candidate": "logreg|{\"C\": 0.01}|mask20"
+    }
+  ],
+  "nested_protocol_mean_acc": 0.33833632738991015,
+  "chance_level": 0.16666666666666666,
+  "heldout_real_accuracy_human": "44.4% mean over 4 leave-one-participant-out folds (chance 16.7%)",
+  "caveat": "Four real participants only. Fold-to-fold spread is large; treat the mean as indicative, not as a measurement. Synthetic participants add sensor-variation robustness, not new body types."
+}

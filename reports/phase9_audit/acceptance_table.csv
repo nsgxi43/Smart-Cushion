@@ -1,0 +1,16 @@
+check,description,result,detail,evidence
+1,Posture labels map consistently from the original P1-P6 folders,PASS,"6/6 folder->class mappings consistent; 24 recordings checked, all agree with their folder","ml/common.py::POSTURE_FOLDER_TO_CLASS, tests/test_dataset_and_labels.py"
+2,No original dataset file modified (checksums match Phase 1),PASS,"69 original DATASET files re-hashed, all identical to Phase 1",reports/phase9_audit/checksum_reverify.csv
+3,Synthetic provenance is complete,PASS,"2759 synthetic frames in 36 recordings, every frame traced to a real source frame",AUGMENTED_DATASET/**/provenance.csv
+4,No source recording leaks across training and evaluation,PASS,"8 train/test splits checked: 0 shared recording takes, 0 training rows derived from the held-out participant, every group key maps to exactly one (participant, posture, repetition)",reports/phase9_audit/leakage_check.csv
+5,"Real-only vs real+synthetic compared, decision rule applied",PASS,REAL_ONLY mean 0.3383 vs REAL_PLUS_SYNTHETIC mean 0.3373; decision rule 'keep synthetic only if held-out real performance improves or stays equal' -> DROP; shipped model use_synthetic=False,reports/phase4_evaluation/nested_results.csv
+6,Preprocessing identical between Python and C++,PASS,"300/300 recorded frames bit-identical (0 ULP, max abs diff 0); all 8 edge cases identical; 5/5 calibration scenarios agree",reports/preprocess_equivalence.md
+7,INT8 model matches its reference implementation,PASS,"INT8 vs float top-1 agreement 0.9935 (required >= 0.99); max |dP| 0.0700; numpy replica vs TFLite argmax 400/400, max logit diff 0; generated C++ vs TFLite argmax 500/500, max logit diff 0","reports/phase5_export/export_report.json, cpp_vs_tflite.json"
+8,Firmware preserves the original scan sequence and pins,PASS,"5/5 sub-checks pass: pin_and_timing_constants, adc_and_serial_configuration, scan_helper_functions, scan_operation_sequence, pinMode_calls",reports/firmware_scan_diff.md
+9,Dashboard distinguishes ESP32 vs Python predictions,PASS,serial PRED tagged origin=ESP32=True; simulated prediction tagged origin=Python=True; app renders the origin of the current prediction=True; app warns when the source is simulated=True; test asserts simulated predictions are never ESP32=True,"dashboard/app.py, dashboard/serial_source.py"
+10,All reported metrics reproducible from saved outputs,PASS,"per-fold rows, per-class supports and confusion matrices are all mutually consistent; every headline number recomputes from nested_results.csv",reports/phase4_evaluation/
+H1,Firmware compiles with PlatformIO or arduino-cli,PENDING_HARDWARE,neither toolchain is installed on this machine,README.md -> Compiling
+H2,Firmware uploads to an ESP32 DevKit V1,PENDING_HARDWARE,no board detected,README.md -> Flashing
+H3,On-device inference time measured with micros(),PENDING_HARDWARE,requires a running board; the firmware prints it on every PRED line,README.md -> Measuring inference time
+H4,Live accuracy on a real seated person,PENDING_HARDWARE,requires hardware and a participant; use the dashboard manual-posture selector,README.md -> Physical test procedure
+H5,Flash / RAM usage reported by the compiler,PENDING_HARDWARE,requires a working toolchain,README.md -> Compiling

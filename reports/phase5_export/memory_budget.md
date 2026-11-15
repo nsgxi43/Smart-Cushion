@@ -5,7 +5,7 @@
 | frames compared | 500 | | |
 | argmax agreement | 500 / 500 | identical on all frames | True |
 | max logit difference | 0 | +/- 1 quantisation step | True |
-| max probability difference | 1.92e-07 | | |
+| max probability difference | 2.15e-07 | | |
 | independent numpy replica argmax | 500 / 500 | | True |
 
 **Overall: PASS**
@@ -14,8 +14,8 @@
 
 | metric | value | tolerance |
 |---|---|---|
-| top-1 agreement | 0.9973 | >= 0.99 |
-| max probability difference | 0.0383 | documented |
+| top-1 agreement | 0.9935 | >= 0.99 |
+| max probability difference | 0.0700 | documented |
 
 ## Memory budget
 
@@ -56,5 +56,5 @@ The ESP32 DevKit V1 has 520 kB SRAM and 4 MB flash, so this fits with very large
 
 ## Timing
 
-- Host round trip through the test harness: **5.253 ms/frame** — this is a PC measurement including stdio and is **not** an ESP32 number.
+- Host round trip through the test harness: **3.521 ms/frame** — this is a PC measurement including stdio and is **not** an ESP32 number.
 - **ESP32 inference time: PENDING_HARDWARE.** The firmware brackets `scPreprocessFrame` + `scInfer` with `micros()` and prints the result as the 4th field of every `PRED,` line.
