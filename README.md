@@ -7,11 +7,28 @@ synthetic-participant augmentation, the participant-independent evaluation, the
 INT8 export and generated C++ kernel, the firmware, a serial tester and a
 Streamlit dashboard.
 
-> **Read `reports/phase9_audit/acceptance_table.md` first.** It is the honest
-> summary: what passed, what failed, and what cannot be measured without the
-> board. Headline accuracy numbers live in
-> `reports/phase4_evaluation/nested_results.csv`, and the limitations that
-> matter are in `reports/phase4_evaluation/domain_shift_diagnostic.md`.
+## Start here
+
+| Document | What it answers |
+|---|---|
+| **[MODEL_CARD.md](MODEL_CARD.md)** | What model, trained how, on what data, with what results and what limits. All the ML detail. |
+| **[ESP32_GUIDE.md](ESP32_GUIDE.md)** | How to compile, flash and run it on the board, and how to measure inference time and live accuracy. |
+| [reports/phase9_audit/acceptance_table.md](reports/phase9_audit/acceptance_table.md) | What passed, what failed, what is unmeasured (10 PASS, 0 FAIL, 5 PENDING_HARDWARE). |
+| [reports/experiment_summary.md](reports/experiment_summary.md) | One-page experiment record with the git commit hash. |
+| [reports/phase4_evaluation/domain_shift_diagnostic.md](reports/phase4_evaluation/domain_shift_diagnostic.md) | Why accuracy is what it is. |
+| [CLAUDE.md](CLAUDE.md) | Decisions, gotchas and commands for whoever picks this up next. |
+
+### The result in one paragraph
+
+A 16 790-parameter Keras network (`504-32-16-6`, INT8) classifies six sitting
+postures on the ESP32 itself. On participants it has never seen it scores
+**~0.42–0.44 accuracy against a 0.167 chance level**. Left and right lean work
+(~0.65–0.70 recall); forward and backward lean are mutually confused and close
+to unusable. Within a single participant the same pipeline reaches ~0.87 — the
+gap is cross-participant domain shift caused by a saturating sensor, not by the
+model. Synthetic augmentation was generated, evaluated, and **dropped** because
+it did not improve held-out performance. Training accuracy was 0.7857 and is
+never reported as performance.
 
 ## Classes
 
@@ -122,103 +139,54 @@ python dashboard\serial_tester.py --port COM5
 
 ---
 
-# PENDING_HARDWARE — what you need to run
+# Running it on the ESP32
 
-Nothing below could be measured here: no ESP32 is connected, and neither
-PlatformIO nor arduino-cli is installed on this machine. **No claim is made
-anywhere in this repository that the firmware compiles, uploads or runs.**
+Full step-by-step instructions — toolchain install, assembling the sketch
+folder, compiling, flashing, calibration, the serial protocol, measuring
+on-device inference time, and running a live accuracy test — are in
+**[ESP32_GUIDE.md](ESP32_GUIDE.md)**.
 
-## H1 — Install a toolchain
+Nothing in that guide has been executed: no board was connected and no
+toolchain is installed on the machine that built this project. **No claim is
+made anywhere in this repository that the firmware compiles, uploads or runs.**
+Five audit items stay PENDING_HARDWARE until you run them:
 
-Either of these. arduino-cli is the lighter option.
+| # | Item | Section |
+|---|---|---|
+| H1 | Firmware compiles | ESP32_GUIDE §3 |
+| H2 | Firmware uploads | ESP32_GUIDE §4 |
+| H3 | On-device inference time measured with `micros()` | ESP32_GUIDE §8 |
+| H4 | Live accuracy on a real seated person | ESP32_GUIDE §9 |
+| H5 | Compiler-reported flash / RAM | ESP32_GUIDE §3 |
+
+The short version:
 
 ```powershell
-# arduino-cli
 winget install ArduinoSA.CLI
 arduino-cli config init
-arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
-arduino-cli core install esp32:esp32 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
-```
+arduino-cli config add board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+arduino-cli core update-index ; arduino-cli core install esp32:esp32
 
-```powershell
-# or PlatformIO
-pip install platformio
-```
-
-## H2 — Compile, and record flash / RAM
-
-The sketch lives in `esp32/smart_cushion/`. It needs `preprocess.{h,cpp}`,
-`inference.{h,cpp}` and `model_data.h`, which sit one directory up — copy them
-in first (the Arduino IDE only compiles files beside the `.ino`):
-
-```powershell
 cd esp32
-copy preprocess.h  smart_cushion\
-copy preprocess.cpp smart_cushion\
-copy inference.h   smart_cushion\
-copy inference.cpp smart_cushion\
-copy model_data.h  smart_cushion\
-
+copy preprocess.h smart_cushion\  ; copy preprocess.cpp smart_cushion\
+copy inference.h  smart_cushion\  ; copy inference.cpp  smart_cushion\
+copy model_data.h smart_cushion\
 arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 smart_cushion
-```
-
-**Record the "Sketch uses … bytes" and "Global variables use … bytes" lines**
-and paste them into `reports/phase5_export/memory_budget.md` under a new
-*Measured on hardware* heading. The predicted figures in that file are derived
-from the generated header, not from a compiler.
-
-With PlatformIO instead:
-
-```powershell
-pio run -e esp32doit-devkit-v1
-```
-
-## H3 — Flash
-
-```powershell
-arduino-cli board list                      # find the port, e.g. COM5
+arduino-cli board list
 arduino-cli upload -p COM5 --fqbn esp32:esp32:esp32doit-devkit-v1 smart_cushion
-```
+cd ..
 
-## H4 — Measure on-device inference time
-
-The firmware brackets `scPreprocessFrame()` + `scInfer()` with `micros()` and
-prints the result as the 4th field of every `PRED,` line:
-
-```
-PRED,C2_Slouching,0.8123,4210
-                         ^^^^ microseconds
-```
-
-```powershell
 python dashboard\serial_tester.py --port COM5 --seconds 60
+streamlit run dashboard\app.py
 ```
 
-Take the median of the `µs` column over at least 50 frames and record it in
-`models/model_metadata.json` (`esp32_inference_us`, currently
-`"PENDING_HARDWARE"`) and in `reports/experiment_summary.md`.
+> **Re-copy `model_data.h` into `smart_cushion\` every time you retrain** — it
+> is generated by `ml\export_int8.py`, and a stale copy silently flashes an old
+> model.
 
-## H5 — Physical posture test
-
-1. Put the cushion on a chair with **nothing on it**.
-2. Flash and open the dashboard: `streamlit run dashboard\app.py`, choose
-   **ESP32 serial**, pick the port, press **Start test**.
-3. Wait for `CAL,OK` and `STATE,READY`. If you see `CAL,PRESSURE_DETECTED` the
-   cushion was loaded — clear it and press **Recalibrate (CAL)**.
-4. Have the participant sit. For each of the six postures:
-   * select the posture in the **Manual posture** dropdown,
-   * hold it for ~15 seconds,
-   * press **Log this comparison** about once per second (the scan runs at
-     roughly 1.4 Hz, so you get ~20 samples per posture).
-5. Repeat for every posture, then for every participant you can recruit.
-6. Press **Download comparison CSV** and save it to
-   `reports/hardware_validation/<date>_<participant>.csv`.
-7. The dashboard shows running agreement; the CSV has one row per logged frame
-   with the manual label, the predicted label, confidence and origin.
-
-**Recruit people who are not P1–P4.** The whole point of the evaluation
-protocol is performance on participants the model has never seen, and the four
-in `DATASET/` are all in the training set of the shipped model.
+> **The `FRAME,` prefix breaks the original `PLOT.PY` and `collect_p*.py`
+> scripts.** Flash `esp32ackup_20261115\matrix_scanner_original.ino` if you
+> need them, or teach them to strip the prefix. See `esp32/FIRMWARE_CHANGES.md`.
 
 ---
 
