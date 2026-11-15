@@ -1,14 +1,13 @@
 // Smart Cushion - dependency-free INT8 inference. See inference.h.
 //
-// The requantisation below is a direct transcription of gemmlowp's
-// SaturatingRoundingDoublingHighMul + RoundingDivideByPOT, which is what
-// TFLite's reference integer FULLY_CONNECTED kernel uses. Reproducing it
-// exactly is what lets the generated C++ match the TFLite INT8 interpreter
-// bit-for-bit rather than approximately.
+// The requantisation below reproduces TFLite's single-rounding integer
+// FULLY_CONNECTED kernel exactly, which is what lets the generated C++ match
+// the TFLite INT8 interpreter bit-for-bit rather than approximately.
 
 #include "inference.h"
 
 #include <math.h>
+#include <stdint.h>
 #include <string.h>
 
 // Two ping-pong activation buffers, sized for the widest layer. Static, so the
@@ -17,36 +16,29 @@ static int32_t gBufA[SC_MAX_UNITS];
 static int32_t gBufB[SC_MAX_UNITS];
 
 // ---------------------------------------------------------------------------
-// gemmlowp fixed-point primitives
+// TFLite requantisation, single-rounding variant (TFLITE_SINGLE_ROUNDING).
+//
+// Rounds ONCE on a 64-bit intermediate. The older gemmlowp path
+// (SaturatingRoundingDoublingHighMul + RoundingDivideByPOT) rounds twice and
+// pushes values just below .5 up to the next integer, which flips occasional
+// near-tie argmaxes. ml/export_int8.py implements exactly this function.
 // ---------------------------------------------------------------------------
-static inline int32_t SaturatingRoundingDoublingHighMul(int32_t a, int32_t b) {
-  if (a == INT32_MIN && b == INT32_MIN) return INT32_MAX;
-  int64_t ab = (int64_t)a * (int64_t)b;
-  int64_t nudge = (ab >= 0) ? (1 << 30) : (1 - (1 << 30));
-  return (int32_t)((ab + nudge) >> 31);
-}
-
-static inline int32_t RoundingDivideByPOT(int32_t x, int exponent) {
-  if (exponent <= 0) return x;
-  const int32_t mask = (int32_t)((1LL << exponent) - 1);
-  const int32_t remainder = x & mask;
-  const int32_t threshold = (mask >> 1) + (x < 0 ? 1 : 0);
-  return (x >> exponent) + (remainder > threshold ? 1 : 0);
-}
-
 static inline int32_t MultiplyByQuantizedMultiplier(int32_t x, int32_t qm,
                                                     int32_t shift) {
-  const int left = shift > 0 ? shift : 0;
-  const int right = shift < 0 ? -shift : 0;
-  const int32_t v = left ? (int32_t)((int64_t)x * (1LL << left)) : x;
-  return RoundingDivideByPOT(SaturatingRoundingDoublingHighMul(v, qm), right);
+  const int32_t total_shift = 31 - shift;              // shift is in [-31, 30]
+  const int64_t rounding = (int64_t)1 << (total_shift - 1);
+  int64_t result = (int64_t)x * (int64_t)qm + rounding;
+  result >>= total_shift;
+  if (result < INT32_MIN) return INT32_MIN;
+  if (result > INT32_MAX) return INT32_MAX;
+  return (int32_t)result;
 }
 
 // ---------------------------------------------------------------------------
 void scQuantiseInput(const float *features, int8_t *q_out) {
   for (int i = 0; i < SC_MODEL_INPUT_DIM; i++) {
-    // roundf is round-half-away-from-zero, matching numpy.round on the
-    // half-integer boundaries that actually occur here (see export script).
+    // lrintf uses the default rounding mode (round-half-to-even), which is
+    // what numpy.round does, and the division is float32 on both sides.
     float v = features[i] / SC_INPUT_SCALE;
     int32_t q = (int32_t)lrintf(v) + SC_INPUT_ZERO_POINT;
     if (q < -128) q = -128;

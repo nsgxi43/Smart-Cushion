@@ -88,7 +88,8 @@ def test_int8_output_shape_and_softmax(tflite_bytes, sample_features):
     s_in, z_in = inp["quantization"]
     s_out, z_out = out["quantization"]
     for x in sample_features[:10]:
-        q = np.clip(np.round(x / s_in) + z_in, -128, 127).astype(np.int8)
+        q = np.clip(np.round(x.astype(np.float32) / np.float32(s_in))
+                    + z_in, -128, 127).astype(np.int8)
         interp.set_tensor(inp["index"], q.reshape(1, -1))
         interp.invoke()
         logits = (interp.get_tensor(out["index"])[0].astype(np.float64) - z_out) * s_out
@@ -145,7 +146,8 @@ def test_generated_cpp_matches_tflite(tflite_bytes, sample_features, meta):
         h.set_cal(np.zeros(N_SENSORS, dtype=np.int32),
                   np.zeros(N_SENSORS, dtype=np.int32))
         for x in X:
-            q = np.clip(np.round(x / s_in) + z_in, -128, 127).astype(np.int8)
+            q = np.clip(np.round(x.astype(np.float32) / np.float32(s_in))
+                    + z_in, -128, 127).astype(np.int8)
             interp.set_tensor(inp["index"], q.reshape(1, -1))
             interp.invoke()
             ref = interp.get_tensor(out["index"])[0].astype(np.int32)

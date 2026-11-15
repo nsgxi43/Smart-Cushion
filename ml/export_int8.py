@@ -54,31 +54,30 @@ def quantize_multiplier(double_multiplier):
     return q, int(exponent)
 
 
-def saturating_rounding_doubling_high_mul(a, b):
-    a = np.int64(np.int32(a))
-    b = np.int64(np.int32(b))
-    if a == -(1 << 31) and b == -(1 << 31):
-        return np.int32((1 << 31) - 1)
-    ab = a * b
-    nudge = (1 << 30) if ab >= 0 else (1 - (1 << 30))
-    return np.int32((ab + nudge) >> 31)
-
-
-def rounding_divide_by_pot(x, exponent):
-    x = np.int32(x)
-    if exponent <= 0:
-        return x
-    mask = np.int32((1 << exponent) - 1)
-    remainder = np.int32(x & mask)
-    threshold = np.int32(mask >> 1) + np.int32(1 if x < 0 else 0)
-    return np.int32((x >> exponent) + (1 if remainder > threshold else 0))
-
-
 def multiply_by_quantized_multiplier(x, qm, shift):
-    left = shift if shift > 0 else 0
-    right = -shift if shift < 0 else 0
-    v = np.int32(np.int64(x) * (1 << left)) if left else np.int32(x)
-    return rounding_divide_by_pot(saturating_rounding_doubling_high_mul(v, qm), right)
+    """TFLite's requantisation, single-rounding variant.
+
+    Modern TFLite builds define TFLITE_SINGLE_ROUNDING, which rounds ONCE on a
+    64-bit intermediate rather than twice through gemmlowp's
+    SaturatingRoundingDoublingHighMul + RoundingDivideByPOT. The difference is
+    not cosmetic: double rounding pushes values just below .5 up to the next
+    integer (e.g. a true 71.4962 becomes 71.5 after the first rounding and then
+    72), which flips occasional near-tie argmaxes. esp32/inference.cpp
+    implements exactly this function.
+    """
+    x = int(x)
+    qm = int(qm)
+    shift = int(shift)
+    assert qm >= 0, "quantised multipliers are non-negative"
+    assert -31 <= shift <= 30, "shift out of range: %d" % shift
+    total_shift = 31 - shift
+    rounding = 1 << (total_shift - 1)
+    result = (x * qm + rounding) >> total_shift
+    if result < -(1 << 31):
+        return np.int32(-(1 << 31))
+    if result > (1 << 31) - 1:
+        return np.int32((1 << 31) - 1)
+    return np.int32(result)
 
 
 # ---------------------------------------------------------------------------
@@ -133,9 +132,22 @@ def convert_int8(model, rep_X):
     return conv.convert()
 
 
-def tflite_predict(tflite_bytes, X):
+def _interpreter(tflite_bytes):
+    """Interpreter with the reference kernels and no delegates.
+
+    The default resolver lets XNNPACK fuse the FULLY_CONNECTED ops into a single
+    DELEGATE node, which both hides the per-layer tensors we need to export and
+    changes the arithmetic. BUILTIN_REF is the plain integer reference kernel -
+    exactly what esp32/inference.cpp reimplements.
+    """
     import tensorflow as tf
-    interp = tf.lite.Interpreter(model_content=tflite_bytes)
+    return tf.lite.Interpreter(
+        model_content=tflite_bytes,
+        experimental_op_resolver_type=tf.lite.experimental.OpResolverType.BUILTIN_REF)
+
+
+def tflite_predict(tflite_bytes, X):
+    interp = _interpreter(tflite_bytes)
     interp.allocate_tensors()
     inp = interp.get_input_details()[0]
     out = interp.get_output_details()[0]
@@ -143,7 +155,10 @@ def tflite_predict(tflite_bytes, X):
     s_out, z_out = out["quantization"]
     q_logits = np.zeros((X.shape[0], len(CLASS_NAMES)), dtype=np.int32)
     for i in range(X.shape[0]):
-        q = np.clip(np.round(X[i] / s_in) + z_in, -128, 127).astype(np.int8)
+        # float32 throughout, so this matches scQuantiseInput() in inference.cpp
+        # bit-for-bit rather than only to within a rounding boundary
+        q = np.clip(np.round(X[i].astype(np.float32) / np.float32(s_in))
+                    + z_in, -128, 127).astype(np.int8)
         interp.set_tensor(inp["index"], q.reshape(1, -1))
         interp.invoke()
         q_logits[i] = interp.get_tensor(out["index"])[0].astype(np.int32)
@@ -154,8 +169,7 @@ def tflite_predict(tflite_bytes, X):
 # ---------------------------------------------------------------------------
 def extract_layers(tflite_bytes):
     """Pull per-layer int8 weights/biases and quantisation params out of the model."""
-    import tensorflow as tf
-    interp = tf.lite.Interpreter(model_content=tflite_bytes)
+    interp = _interpreter(tflite_bytes)
     interp.allocate_tensors()
     details = {t["index"]: t for t in interp.get_tensor_details()}
 
@@ -381,7 +395,8 @@ def main():
     ref_argmax_match = 0
     ref_logit_maxdiff = 0
     for i in idx:
-        q = np.clip(np.round(Xr[i] / s_in) + z_in, -128, 127).astype(np.int32)
+        q = np.clip(np.round(Xr[i].astype(np.float32) / np.float32(s_in))
+                    + z_in, -128, 127).astype(np.int32)
         out = reference_int8_forward(layers, q)
         d = int(np.abs(out - q_logits[i]).max())
         ref_logit_maxdiff = max(ref_logit_maxdiff, d)

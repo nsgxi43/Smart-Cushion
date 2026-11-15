@@ -132,7 +132,8 @@ def main():
     # --- numpy replica as a third opinion ---
     rep_match = 0
     for k in range(Xs.shape[0]):
-        q = np.clip(np.round(Xs[k] / s_in) + z_in, -128, 127).astype(np.int32)
+        q = np.clip(np.round(Xs[k].astype(np.float32) / np.float32(s_in))
+                    + z_in, -128, 127).astype(np.int32)
         out = reference_int8_forward(layers, q)
         if int(out.argmax()) == int(q_logits[k].argmax()):
             rep_match += 1

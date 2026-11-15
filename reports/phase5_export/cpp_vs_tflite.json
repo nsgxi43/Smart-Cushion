@@ -1,0 +1,44 @@
+{
+  "frames": 500,
+  "argmax_match": 500,
+  "argmax_agreement": 1.0,
+  "max_logit_diff": 0,
+  "max_prob_diff": 1.9197917811020204e-07,
+  "numpy_replica_argmax_match": 500,
+  "tolerance_argmax": "identical on all frames",
+  "tolerance_logits": "+/-1 quantisation step",
+  "pass": true,
+  "host_roundtrip_ms_per_frame_NOT_esp32": 5.253200600040145,
+  "host_note": "this timing includes the stdin/stdout harness round trip on a PC and is NOT an ESP32 figure",
+  "esp32_inference_us": "PENDING_HARDWARE",
+  "memory": {
+    "flash_breakdown_bytes": {
+      "int8 weights": 16736,
+      "int32 biases": 216,
+      "int32 requant multipliers": 216,
+      "int32 requant shifts": 216,
+      "ScLayer descriptors": 72,
+      "class name strings": 107
+    },
+    "flash_total_bytes": 17563,
+    "static_ram_breakdown_bytes": {
+      "gBufA (int32 x SC_MAX_UNITS)": 2016,
+      "gBufB (int32 x SC_MAX_UNITS)": 2016,
+      "quantised input (int8 x 504)": 504,
+      "scBaseline (int32 x 504)": 2016,
+      "scThreshold (int32 x 504)": 2016,
+      "calibration gSum (double x 504)": 4032,
+      "calibration gSumSq (double x 504)": 4032,
+      "calibration mean/sd scratch (double x 504 x 2)": 8064,
+      "medianOfMeans tmp (float x 504)": 2016,
+      "firmware readings[24][21] (int)": 2016,
+      "firmware gFrame (int32 x 504)": 2016,
+      "firmware gFeatures (float x 504)": 2016,
+      "firmware gProbHistory (float x 3 x 6)": 72
+    },
+    "static_ram_total_bytes": 32832,
+    "inference_workspace_bytes": 4536,
+    "dynamic_allocation_in_inference_loop": false,
+    "stack_bytes_estimate": "< 256 B: runLayer uses a handful of int32 locals and no recursion or VLAs"
+  }
+}

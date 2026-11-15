@@ -111,7 +111,7 @@ int main() {
         scInfer(feat, &r);
         std::cout << "LOGITS";
         for (int i = 0; i < SC_N_CLASSES; i++) std::cout << " " << r.logits[i];
-        std::cout << " ARGMAX " << r.argmax << " PROB";
+        std::cout << " ARGMAX " << (int)r.argmax << " PROB";  // int8_t streams as a char
         for (int i = 0; i < SC_N_CLASSES; i++) printf(" %.9g", (double)r.prob[i]);
         std::cout << "\n";
       }
