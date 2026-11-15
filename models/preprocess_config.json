@@ -1,0 +1,71 @@
+{
+  "config_version": 1,
+  "geometry": {
+    "rows": 24,
+    "cols": 21,
+    "n_features": 504,
+    "feature_order": "row_major: feature_index = row * 21 + col",
+    "firmware_transmission_order": "same as feature_order (FRAME line)"
+  },
+  "adc": {
+    "bits": 12,
+    "min": 0,
+    "max": 4095,
+    "attenuation_db": 11,
+    "samples_averaged": 16,
+    "settle_us": 300,
+    "baud": 115200
+  },
+  "pipeline": [
+    {
+      "stage": 1,
+      "op": "delta = abs(raw - baseline)",
+      "dtype": "int32"
+    },
+    {
+      "stage": 2,
+      "op": "if delta <= threshold: delta = 0",
+      "dtype": "int32"
+    },
+    {
+      "stage": 3,
+      "op": "delta = min(delta, CLIP_MAX)",
+      "dtype": "int32"
+    },
+    {
+      "stage": 4,
+      "op": "x = delta * INV_SCALE",
+      "dtype": "float32"
+    }
+  ],
+  "constants": {
+    "CLIP_MAX": 4095,
+    "SCALE": 1024.0,
+    "INV_SCALE": 0.0009765625,
+    "NOISE_MULTIPLIER": 3,
+    "MIN_THRESHOLD": 20,
+    "CALIBRATION_FRAMES": 20
+  },
+  "calibration_acceptance": {
+    "CAL_MAX_MEAN_ABS_DEV": 25.0,
+    "CAL_MAX_LOADED_CELLS": 10,
+    "CAL_LOAD_DELTA": 150.0,
+    "CAL_MAX_NOISE_STD": 120.0,
+    "CAL_MIN_BASELINE": 1.0,
+    "CAL_MAX_BASELINE": 4045.0,
+    "failure_states": [
+      "PRESSURE_DETECTED",
+      "UNSTABLE_BASELINE",
+      "EXCESSIVE_NOISE",
+      "NO_SIGNAL",
+      "RAIL_SATURATED",
+      "TOO_FEW_FRAMES",
+      "BAD_SHAPE"
+    ],
+    "retry_command": "CAL"
+  },
+  "no_per_frame_normalisation": true,
+  "rationale": "Absolute pressure carries class information, so no per-frame max/mean normalisation is applied. SCALE and CLIP_MAX are hardware-derived constants, never fitted to data, so they cannot leak a held-out participant.",
+  "model_input_spec": {},
+  "notes": []
+}

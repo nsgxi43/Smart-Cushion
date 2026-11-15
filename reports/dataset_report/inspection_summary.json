@@ -1,0 +1,104 @@
+{
+  "n_recordings": 24,
+  "participants": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "classes": [
+    "C0_Normal",
+    "C1_Forward_Lean",
+    "C2_Slouching",
+    "C3_Left_Lean",
+    "C4_Right_Lean",
+    "C5_Backward_Lean"
+  ],
+  "posture_folder_to_class": {
+    "P1_Normal": "C0_Normal",
+    "P2_Forward_Lean": "C1_Forward_Lean",
+    "P3_Slouching": "C2_Slouching",
+    "P4_Left_Lean": "C3_Left_Lean",
+    "P5_Right_Lean": "C4_Right_Lean",
+    "P6_Backward_Lean": "C5_Backward_Lean"
+  },
+  "total_raw_frames": 1848,
+  "frames_per_participant": {
+    "P1": 440,
+    "P2": 471,
+    "P3": 463,
+    "P4": 474
+  },
+  "dead_sensors": {
+    "P1": [
+      20,
+      83
+    ],
+    "P2": [
+      20,
+      41,
+      62,
+      83,
+      104,
+      125,
+      146,
+      167,
+      188,
+      209,
+      230,
+      251,
+      272,
+      293,
+      314,
+      335,
+      356,
+      377,
+      398,
+      419,
+      440,
+      461,
+      503
+    ],
+    "P3": [],
+    "P4": [
+      20,
+      41,
+      62,
+      83,
+      104,
+      125,
+      146,
+      167,
+      188,
+      209,
+      230,
+      251,
+      272,
+      293,
+      314,
+      335,
+      356,
+      377,
+      398,
+      419,
+      440,
+      461,
+      482,
+      503
+    ]
+  },
+  "schemas": {
+    "P1": [
+      "P1_LEGACY"
+    ],
+    "P2": [
+      "P2PLUS"
+    ],
+    "P3": [
+      "P2PLUS"
+    ],
+    "P4": [
+      "P2PLUS"
+    ]
+  }
+}

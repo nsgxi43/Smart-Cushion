@@ -1,0 +1,12 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+.idea/
+
+# project additions
+models/dataset.npz
+models/recovered_baselines.json
+*.npz
