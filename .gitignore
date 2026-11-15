@@ -10,3 +10,4 @@ __pycache__/
 models/dataset.npz
 models/recovered_baselines.json
 *.npz
+esp32/host_harness.exe

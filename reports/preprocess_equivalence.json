@@ -1,0 +1,162 @@
+{
+  "checks": [
+    {
+      "name": "real_frames_full_pipeline",
+      "frames": 300,
+      "bitwise_identical_frames": 300,
+      "max_abs_diff": 0.0,
+      "max_ulp_diff": 0,
+      "calibration_source": "P1|C0_Normal"
+    },
+    {
+      "name": "stages_1_3_raw_to_pressure",
+      "frames": 100,
+      "exact_frames": 100
+    },
+    {
+      "name": "stage_4_pressure_to_features",
+      "frames": 100,
+      "bitwise_identical_frames": 100,
+      "max_abs_diff": 0.0
+    },
+    {
+      "name": "edge_cases",
+      "cases": [
+        {
+          "case": "all_zero",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 83
+        },
+        {
+          "case": "all_max",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 504
+        },
+        {
+          "case": "alternating",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 293
+        },
+        {
+          "case": "just_below_thr",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 0
+        },
+        {
+          "case": "just_above_thr",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 504
+        },
+        {
+          "case": "ramp",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 400
+        },
+        {
+          "case": "random_uniform",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 488
+        },
+        {
+          "case": "random_clustered",
+          "bitwise_identical": true,
+          "max_abs_diff": 0.0,
+          "py_nonzero": 504
+        }
+      ]
+    },
+    {
+      "name": "calibration_equivalence",
+      "cases": [
+        {
+          "scenario": "clean_unloaded",
+          "python_result": "OK",
+          "cpp_result": "OK",
+          "cpp_state": "READY",
+          "agree": true,
+          "python_diagnostics": {
+            "mean_abs_dev": 6.275,
+            "mean_noise_std": 7.78,
+            "max_noise_std": 11.442,
+            "loaded_cells": 0.0,
+            "baseline_min": 2495.52,
+            "baseline_max": 2504.48,
+            "baseline_median": 2500.24
+          },
+          "baseline_exact": true,
+          "threshold_exact": true,
+          "baseline_max_diff": 0,
+          "threshold_max_diff": 0
+        },
+        {
+          "scenario": "too_few_frames",
+          "python_result": "TOO_FEW_FRAMES",
+          "cpp_result": "TOO_FEW_FRAMES",
+          "cpp_state": "CALIBRATION_FAILED",
+          "agree": true,
+          "python_diagnostics": {
+            "frames": 10.0
+          }
+        },
+        {
+          "scenario": "pressure_detected",
+          "python_result": "PRESSURE_DETECTED",
+          "cpp_result": "PRESSURE_DETECTED",
+          "cpp_state": "CALIBRATION_FAILED",
+          "agree": true,
+          "python_diagnostics": {
+            "mean_abs_dev": 6.238,
+            "mean_noise_std": 7.75,
+            "max_noise_std": 10.887,
+            "loaded_cells": 60.0,
+            "baseline_min": 2495.16,
+            "baseline_max": 3404.2,
+            "baseline_median": 2500.12
+          }
+        },
+        {
+          "scenario": "excessive_noise",
+          "python_result": "UNSTABLE_BASELINE",
+          "cpp_result": "UNSTABLE_BASELINE",
+          "cpp_state": "CALIBRATION_FAILED",
+          "agree": true,
+          "python_diagnostics": {
+            "mean_abs_dev": 155.628,
+            "mean_noise_std": 193.131,
+            "max_noise_std": 280.616,
+            "loaded_cells": 0.0,
+            "baseline_min": 2368.56,
+            "baseline_max": 2626.12,
+            "baseline_median": 2499.88
+          }
+        },
+        {
+          "scenario": "unstable_baseline",
+          "python_result": "UNSTABLE_BASELINE",
+          "cpp_result": "UNSTABLE_BASELINE",
+          "cpp_state": "CALIBRATION_FAILED",
+          "agree": true,
+          "python_diagnostics": {
+            "mean_abs_dev": 104.166,
+            "mean_noise_std": 120.318,
+            "max_noise_std": 125.44,
+            "loaded_cells": 0.0,
+            "baseline_min": 2695.28,
+            "baseline_max": 2706.04,
+            "baseline_median": 2700.08
+          }
+        }
+      ]
+    }
+  ],
+  "max_abs_diff_overall": 0.0,
+  "max_ulp_diff_overall": 0,
+  "frames_compared": 300
+}
