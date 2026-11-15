@@ -13,3 +13,4 @@ WARNING:tensorflow:6 out of the last 6 calls to <function TensorFlowTrainer.make
   REAL_ONLY            held-out P2 -> nested acc 0.2017  (selected random_forest|{"max_depth": null, "min_samples_leaf": 2, "n_estimators": 300}|all504)  [170s]
   REAL_ONLY            held-out P3 -> nested acc 0.3974  (selected keras_504_32_16_6|{"dropout": 0.3, "lr": 0.001}|mask20)  [176s]
   REAL_ONLY            held-out P4 -> nested acc 0.4451  (selected logreg|{"C": 0.01}|mask20)  [202s]
+  REAL_PLUS_SYNTHETIC  held-out P1 -> nested acc 0.3750  (selected keras_504_16_6|{"dropout": 0.3, "lr": 0.001}|all504)  [493s]
