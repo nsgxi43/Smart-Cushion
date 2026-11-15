@@ -1,0 +1,2 @@
+participant_id,height_cm,weight_kg,sex,is_synthetic,derived_from_participant
+P8_SYNTHETIC,SYNTHETIC/NA,SYNTHETIC/NA,SYNTHETIC/NA,TRUE,P4

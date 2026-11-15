@@ -1,0 +1,275 @@
+{
+  "master_seed": 20261115,
+  "generated": "2026-11-15T11:37:33.290800",
+  "session": "session_synthetic_v1",
+  "participants": {
+    "P5_SYNTHETIC": {
+      "synthetic_participant": "P5_SYNTHETIC",
+      "source_participant": "P1",
+      "global_intensity": 1.0259066493834847,
+      "noise_sigma_counts": 6.16480173750301,
+      "shift_dr": 1,
+      "shift_dc": 1,
+      "temporal_jitter_frames": 0.216113286721301,
+      "gain_field_summary": {
+        "min": 0.919928911933378,
+        "max": 1.0899591508464588,
+        "mean": 1.0,
+        "std": 0.026285063617137335
+      },
+      "offset_field_summary": {
+        "min": -11.086168782921584,
+        "max": 10.46774301312527,
+        "std": 3.684599831986377
+      },
+      "drift_blobs": [
+        {
+          "cy": 18.204,
+          "cx": 10.415,
+          "sy": 4.698,
+          "sx": 6.026,
+          "amplitude": 0.1355
+        },
+        {
+          "cy": 22.904,
+          "cx": 0.615,
+          "sy": 6.339,
+          "sx": 3.175,
+          "amplitude": -0.0601
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    },
+    "P6_SYNTHETIC": {
+      "synthetic_participant": "P6_SYNTHETIC",
+      "source_participant": "P2",
+      "global_intensity": 0.8541949052062573,
+      "noise_sigma_counts": 4.333300458250941,
+      "shift_dr": -1,
+      "shift_dc": 0,
+      "temporal_jitter_frames": 0.24339572562986547,
+      "gain_field_summary": {
+        "min": 0.9385618320944307,
+        "max": 1.0709492341478102,
+        "mean": 1.0,
+        "std": 0.024357825179179053
+      },
+      "offset_field_summary": {
+        "min": -9.73750212797915,
+        "max": 11.47435559819059,
+        "std": 3.687436155748084
+      },
+      "drift_blobs": [
+        {
+          "cy": 0.623,
+          "cx": 7.775,
+          "sy": 5.653,
+          "sx": 5.906,
+          "amplitude": 0.0474
+        },
+        {
+          "cy": 19.648,
+          "cx": 6.599,
+          "sy": 7.035,
+          "sx": 5.38,
+          "amplitude": -0.0204
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    },
+    "P7_SYNTHETIC": {
+      "synthetic_participant": "P7_SYNTHETIC",
+      "source_participant": "P3",
+      "global_intensity": 1.054798080986902,
+      "noise_sigma_counts": 7.02557095226589,
+      "shift_dr": -1,
+      "shift_dc": 1,
+      "temporal_jitter_frames": 0.3628122750136604,
+      "gain_field_summary": {
+        "min": 0.9252092341416309,
+        "max": 1.1040571631525546,
+        "mean": 1.0,
+        "std": 0.026815321923862483
+      },
+      "offset_field_summary": {
+        "min": -11.588427845631216,
+        "max": 13.50563719956279,
+        "std": 3.7269532413675477
+      },
+      "drift_blobs": [
+        {
+          "cy": 0.356,
+          "cx": 17.164,
+          "sy": 3.765,
+          "sx": 3.759,
+          "amplitude": 0.0082
+        },
+        {
+          "cy": 3.382,
+          "cx": 5.34,
+          "sy": 3.483,
+          "sx": 5.908,
+          "amplitude": 0.0297
+        },
+        {
+          "cy": 18.06,
+          "cx": 1.019,
+          "sy": 4.234,
+          "sx": 5.074,
+          "amplitude": 0.1282
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    },
+    "P8_SYNTHETIC": {
+      "synthetic_participant": "P8_SYNTHETIC",
+      "source_participant": "P4",
+      "global_intensity": 1.0216103929556506,
+      "noise_sigma_counts": 8.122988023921438,
+      "shift_dr": 0,
+      "shift_dc": -1,
+      "temporal_jitter_frames": 0.2592693139938585,
+      "gain_field_summary": {
+        "min": 0.9176349584488356,
+        "max": 1.0886466145393803,
+        "mean": 1.0,
+        "std": 0.02316115798394247
+      },
+      "offset_field_summary": {
+        "min": -12.932205259239502,
+        "max": 14.389576138064378,
+        "std": 3.520143463723988
+      },
+      "drift_blobs": [
+        {
+          "cy": 8.199,
+          "cx": 19.844,
+          "sy": 7.427,
+          "sx": 6.922,
+          "amplitude": 0.0784
+        },
+        {
+          "cy": 20.239,
+          "cx": 3.797,
+          "sy": 4.272,
+          "sx": 5.385,
+          "amplitude": -0.0837
+        },
+        {
+          "cy": 9.083,
+          "cx": 18.456,
+          "sy": 7.79,
+          "sx": 6.836,
+          "amplitude": 0.0964
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    },
+    "P9_SYNTHETIC": {
+      "synthetic_participant": "P9_SYNTHETIC",
+      "source_participant": "P1",
+      "global_intensity": 1.0117204448903327,
+      "noise_sigma_counts": 3.584356215384042,
+      "shift_dr": 1,
+      "shift_dc": 1,
+      "temporal_jitter_frames": 0.4238187851151931,
+      "gain_field_summary": {
+        "min": 0.9317090677898707,
+        "max": 1.0798999377883713,
+        "mean": 0.9999999999999998,
+        "std": 0.024957262066097476
+      },
+      "offset_field_summary": {
+        "min": -11.426312532096894,
+        "max": 11.244419082371921,
+        "std": 3.341450193796221
+      },
+      "drift_blobs": [
+        {
+          "cy": 5.469,
+          "cx": 6.471,
+          "sy": 6.026,
+          "sx": 5.06,
+          "amplitude": 0.0006
+        },
+        {
+          "cy": 18.014,
+          "cx": 8.294,
+          "sy": 3.351,
+          "sx": 4.44,
+          "amplitude": -0.0554
+        },
+        {
+          "cy": 2.313,
+          "cx": 12.795,
+          "sy": 3.297,
+          "sx": 3.546,
+          "amplitude": -0.0951
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    },
+    "P10_SYNTHETIC": {
+      "synthetic_participant": "P10_SYNTHETIC",
+      "source_participant": "P2",
+      "global_intensity": 1.0885100375231698,
+      "noise_sigma_counts": 8.45909460487815,
+      "shift_dr": 0,
+      "shift_dc": 1,
+      "temporal_jitter_frames": 0.3315415347959672,
+      "gain_field_summary": {
+        "min": 0.9089275805466408,
+        "max": 1.0875051768390573,
+        "mean": 1.0,
+        "std": 0.028906544134028284
+      },
+      "offset_field_summary": {
+        "min": -12.72811801457516,
+        "max": 12.487717812100637,
+        "std": 3.4714096302335564
+      },
+      "drift_blobs": [
+        {
+          "cy": 2.345,
+          "cx": 5.888,
+          "sy": 5.637,
+          "sx": 5.534,
+          "amplitude": 0.0331
+        },
+        {
+          "cy": 16.558,
+          "cx": 16.489,
+          "sy": 7.413,
+          "sx": 4.513,
+          "amplitude": -0.1079
+        },
+        {
+          "cy": 10.661,
+          "cx": 19.606,
+          "sy": 3.153,
+          "sx": 3.976,
+          "amplitude": 0.1224
+        }
+      ],
+      "height_cm": "SYNTHETIC/NA",
+      "weight_kg": "SYNTHETIC/NA",
+      "sex": "SYNTHETIC/NA",
+      "is_synthetic": true
+    }
+  }
+}
