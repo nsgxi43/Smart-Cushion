@@ -1,0 +1,221 @@
+{
+  "checks": [
+    {
+      "name": "pin_and_timing_constants",
+      "pass": true,
+      "rows": [
+        {
+          "constant": "ROWS",
+          "original": 24,
+          "new": 24,
+          "required": 24,
+          "match": true
+        },
+        {
+          "constant": "COLS",
+          "original": 21,
+          "new": 21,
+          "required": 21,
+          "match": true
+        },
+        {
+          "constant": "ROW_S0",
+          "original": 25,
+          "new": 25,
+          "required": 25,
+          "match": true
+        },
+        {
+          "constant": "ROW_S1",
+          "original": 26,
+          "new": 26,
+          "required": 26,
+          "match": true
+        },
+        {
+          "constant": "ROW_S2",
+          "original": 27,
+          "new": 27,
+          "required": 27,
+          "match": true
+        },
+        {
+          "constant": "ROW_S3",
+          "original": 14,
+          "new": 14,
+          "required": 14,
+          "match": true
+        },
+        {
+          "constant": "COL_S0",
+          "original": 16,
+          "new": 16,
+          "required": 16,
+          "match": true
+        },
+        {
+          "constant": "COL_S1",
+          "original": 17,
+          "new": 17,
+          "required": 17,
+          "match": true
+        },
+        {
+          "constant": "COL_S2",
+          "original": 18,
+          "new": 18,
+          "required": 18,
+          "match": true
+        },
+        {
+          "constant": "COL_S3",
+          "original": 19,
+          "new": 19,
+          "required": 19,
+          "match": true
+        },
+        {
+          "constant": "ROW_EN_1",
+          "original": 21,
+          "new": 21,
+          "required": 21,
+          "match": true
+        },
+        {
+          "constant": "ROW_EN_2",
+          "original": 22,
+          "new": 22,
+          "required": 22,
+          "match": true
+        },
+        {
+          "constant": "ROW_SIG",
+          "original": 13,
+          "new": 13,
+          "required": 13,
+          "match": true
+        },
+        {
+          "constant": "COL_ADC_1",
+          "original": 34,
+          "new": 34,
+          "required": 34,
+          "match": true
+        },
+        {
+          "constant": "COL_ADC_2",
+          "original": 35,
+          "new": 35,
+          "required": 35,
+          "match": true
+        },
+        {
+          "constant": "SAMPLES",
+          "original": 16,
+          "new": 16,
+          "required": 16,
+          "match": true
+        },
+        {
+          "constant": "SETTLE_US",
+          "original": 300,
+          "new": 300,
+          "required": 300,
+          "match": true
+        }
+      ]
+    },
+    {
+      "name": "adc_and_serial_configuration",
+      "pass": true,
+      "rows": [
+        {
+          "call": "analogReadResolution(12)",
+          "in_original": true,
+          "in_new": true,
+          "match": true
+        },
+        {
+          "call": "analogSetPinAttenuation(COL_ADC_1,ADC_11db)",
+          "in_original": true,
+          "in_new": true,
+          "match": true
+        },
+        {
+          "call": "analogSetPinAttenuation(COL_ADC_2,ADC_11db)",
+          "in_original": true,
+          "in_new": true,
+          "match": true
+        },
+        {
+          "call": "Serial.begin(115200)",
+          "in_original": true,
+          "in_new": true,
+          "match": true
+        }
+      ]
+    },
+    {
+      "name": "scan_helper_functions",
+      "pass": true,
+      "rows": [
+        {
+          "function": "setAddress",
+          "identical": true,
+          "original_len": 134,
+          "new_len": 134
+        },
+        {
+          "function": "readAverage",
+          "identical": true,
+          "original_len": 150,
+          "new_len": 150
+        }
+      ]
+    },
+    {
+      "name": "scan_operation_sequence",
+      "pass": true,
+      "original_function": "loop",
+      "new_function": "scanMatrix",
+      "original_ops": 18,
+      "new_ops": 18,
+      "diff": null
+    },
+    {
+      "name": "pinMode_calls",
+      "pass": true,
+      "original": [
+        "COL_ADC_1,INPUT",
+        "COL_ADC_2,INPUT",
+        "COL_S0,OUTPUT",
+        "COL_S1,OUTPUT",
+        "COL_S2,OUTPUT",
+        "COL_S3,OUTPUT",
+        "ROW_EN_1,OUTPUT",
+        "ROW_EN_2,OUTPUT",
+        "ROW_S0,OUTPUT",
+        "ROW_S1,OUTPUT",
+        "ROW_S2,OUTPUT",
+        "ROW_S3,OUTPUT",
+        "ROW_SIG,OUTPUT"
+      ],
+      "new": [
+        "COL_ADC_1,INPUT",
+        "COL_ADC_2,INPUT",
+        "COL_S0,OUTPUT",
+        "COL_S1,OUTPUT",
+        "COL_S2,OUTPUT",
+        "COL_S3,OUTPUT",
+        "ROW_EN_1,OUTPUT",
+        "ROW_EN_2,OUTPUT",
+        "ROW_S0,OUTPUT",
+        "ROW_S1,OUTPUT",
+        "ROW_S2,OUTPUT",
+        "ROW_S3,OUTPUT",
+        "ROW_SIG,OUTPUT"
+      ]
+    }
+  ],
+  "overall_pass": true
+}
